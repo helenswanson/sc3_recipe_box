@@ -7,27 +7,30 @@
   </head>
 
   <body>
-    <h1>
-      <%="#{@recipe["name"]}"%></a>
-    </h1>
-    <br/><br/>
-
+    <% @recipe.each do |recipe_info| %>
+      <h1>
+      <%="#{recipe_info["name"]}"%><br/>
+      </h1>
+      <p>
+      <strong>Description:</strong><br/>
+      <%="#{recipe_info["description"]}"%><br/><br/>
+      <strong>Instructions:</strong><br/>
+      <%="#{recipe_info["instructions"]}"%><br/><br/>
+      </p>
+    <% end %>
 
     <p>
-
-        <%="#{recipe["name"]}"%></a><br/>
-        <%="#{recipe["description"]}"%></a><br/><br/>
-        <%="#{recipe["instructions"]}"%></a><br/><br/>
-      <% end %>
+      <strong>Ingredients:</strong><br/>
+      <ul>
+        <% @ingredients.each do |ingredient| %>
+          <li><%="#{ingredient["name"]}"%></li><br/>
+        <% end %>
+      </ul>
     </p>
-        <p>
-      <% @ingredients.each do |ingredient| %>
-        <%="#{ingredient["name"]}"%></a><br/>
-    </p>
-    <br/><br/>
 
+    <br/>
 
     <a href="/">Back</a>
+    <br/><br/>
   </body>
 </html>
-

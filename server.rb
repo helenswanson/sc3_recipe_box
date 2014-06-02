@@ -23,19 +23,27 @@ def get_all_recipes()
   recipes.sort_by {|recipe| recipe["name"]}
 end
 
-# #get a single recipe
-# def get_recipe(recipe_id)
-#   query = "SELECT name, description, instructions
-#             FROM recipes
-#             WHERE recipes.id = $1 "
-#   recipe = db_connection do |conn|
-#     conn.exec_params(query, [recipe_id])
-#   end
-# recipe.to_a
-# end
+#get a single recipe
+def get_recipe(recipe_id)
+  query = "SELECT name, description, instructions
+            FROM recipes
+            WHERE recipes.id = $1"
+  recipe = db_connection do |conn|
+    conn.exec_params(query, [recipe_id])
+  end
+recipe.to_a
+end
 
 #get recipe ingredients
 def get_ingredients(recipe_id)
+  query = "SELECT ingredients.name
+            FROM ingredients
+            JOIN recipes ON recipes.id = ingredients.recipe_id
+            WHERE recipes.id = $1 "
+  ingredients = db_connection do |conn|
+    conn.exec_params(query, [recipe_id])
+  end
+  ingredients.to_a
 
 end
 
@@ -45,14 +53,15 @@ get '/' do
   redirect '/recipes'
 end
 
-#
+#display for recipes.erb
 get '/recipes' do
   @recipes = get_all_recipes
   erb :recipes
 end
 
+#display for recipe.erb
 get '/recipes/:id' do
-  @recipe_id = params["id"] #CHECK IF CORRECT PARAMS
+  @recipe_id = params[:id] #CHECK IF CORRECT PARAMS
   @recipe = get_recipe(@recipe_id)
   @ingredients = get_ingredients(@recipe_id)
   erb :recipe
