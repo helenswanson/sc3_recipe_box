@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Recipe Database</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <h1>
+      <%="#{@recipe["name"]}"%></a>
+    </h1>
+    <br/><br/>
+
+
+    <p>
+
+        <%="#{recipe["name"]}"%></a><br/>
+        <%="#{recipe["description"]}"%></a><br/><br/>
+        <%="#{recipe["instructions"]}"%></a><br/><br/>
+      <% end %>
+    </p>
+        <p>
+      <% @ingredients.each do |ingredient| %>
+        <%="#{ingredient["name"]}"%></a><br/>
+    </p>
+    <br/><br/>
+
+
+    <a href="/">Back</a>
+  </body>
+</html>
+

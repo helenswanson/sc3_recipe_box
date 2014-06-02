@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Recipe Database</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <h1>
+      List of Recipes:
+    </h1>
+    <p>
+      <ul>
+        <% @recipes.each do |recipe_info| %>
+          <li><a href="/recipes/<%="#{recipe_info["id"]}"%>"><%="#{recipe_info["name"]}"%></a></li>
+        <% end %>
+      </ul>
+    </p>
+    <br/><br/>
+
+
+    <a href="/">Back</a>
+  </body>
+</html>
+
