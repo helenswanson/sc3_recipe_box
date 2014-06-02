@@ -3,24 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>Recipe Database</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
 
   <body>
+
     <% @recipe.each do |recipe_info| %>
       <h1>
-      <%="#{recipe_info["name"]}"%><br/>
+        •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•<br/>
+        ::: (\(\ ...*...*...*...*...*...*...*...*...*...*...*...*<br/>
+        *:: (=' :') ::::::::<%="#{recipe_info["name"]}"%> :::::::::::<br/>
+        •.. (,('')('')¤...*...*...*...*...*...*...*...*...*...*...*<br/>
+        ¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸<br/><br/>
       </h1>
       <p>
-      <strong>Description:</strong><br/>
+      <strong>•·.·´¯`·.·• Description •·.·´¯`·.·•</strong><br/><br/>
       <%="#{recipe_info["description"]}"%><br/><br/>
-      <strong>Instructions:</strong><br/>
+      <strong>•·.·´¯`·.·• Instructions •·.·´¯`·.·•</strong><br/><br/>
       <%="#{recipe_info["instructions"]}"%><br/><br/>
       </p>
     <% end %>
-
+    <h2>
+    (ノ ゜Д゜)ノ ︵ ┻━┻ <br/>
+    •·.·´¯`·.·• so flavor. much happy. wow •·.·´¯`·.·•<br/><br/>
+    </h2>
     <p>
-      <strong>Ingredients:</strong><br/>
+      <strong>•·.·´¯`·.·• Ingredients •·.·´¯`·.·•</strong><br/><br/>
       <ul>
         <% @ingredients.each do |ingredient| %>
           <li><%="#{ingredient["name"]}"%></li><br/>
@@ -28,9 +36,10 @@
       </ul>
     </p>
 
-    <br/>
-
-    <a href="/">Back</a>
+    <br/><br/>
+    <h2>
+    <a href="/"><strong>•·.·´¯`·.·• Back •·.·´¯`·.·•</strong></a>
+    </h2>
     <br/><br/>
   </body>
 </html>

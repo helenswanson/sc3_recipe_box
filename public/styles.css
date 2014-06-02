@@ -1,0 +1,16 @@
+h1 {
+    color: #ff369b;
+}
+
+h2 {
+    color: #b300b3;
+    text-align: center;
+}
+
+body {
+  font-family: 'papyrus', 'san-serif';
+  font-size: 12px;
+  background: rgb(246, 246, 239);
+  margin: 65px;
+  color: #000080;
+}

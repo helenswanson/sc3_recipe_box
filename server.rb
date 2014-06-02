@@ -64,5 +64,6 @@ get '/recipes/:id' do
   @recipe_id = params[:id] #CHECK IF CORRECT PARAMS
   @recipe = get_recipe(@recipe_id)
   @ingredients = get_ingredients(@recipe_id)
+
   erb :recipe
 end
